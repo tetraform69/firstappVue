@@ -46,8 +46,12 @@ export default {
         },
         deleteUser(user){
             this.users.splice(this.users.indexOf(user), 1)
-            alert('eliminando')
         }
+    },
+    created() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(Response => Response.json())
+        .then(data => this.users = data)
     }
 }
 </script>
